@@ -1,31 +1,32 @@
+import { flushSync } from 'svelte';
 import { test } from '../../test';
 
 export default test({
 	html: `
 	<button>foo</button>
 	<button>foo</button>
-	<button>foo</button>
+	<button>FOO</button>
 	`,
 
-	async test({ assert, target }) {
+	test({ assert, target }) {
 		const [btn1, btn2, btn3] = target.querySelectorAll('button');
 
 		// ensure each click runs in its own rerender task
-		await btn1.click();
-		await Promise.resolve();
+		btn1.click();
+		flushSync();
 
-		await btn2.click();
-		await Promise.resolve();
+		btn2.click();
+		flushSync();
 
-		await btn3.click();
-		await Promise.resolve();
+		btn3.click();
+		flushSync();
 
 		assert.htmlEqual(
 			target.innerHTML,
 			`
 	<button>bar</button>
 	<button>bar</button>
-	<button>foo</button>
+	<button>BAR</button>
 	`
 		);
 	}

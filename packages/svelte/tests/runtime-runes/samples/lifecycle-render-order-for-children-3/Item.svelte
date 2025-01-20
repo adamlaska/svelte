@@ -1,17 +1,17 @@
 <script>
-	let { index, n, order } = $props();
+	let { index, n } = $props();
 
 	function logRender () {
-		order.push(`${index}: render ${n}`);
+		console.log(`${index}: render ${n}`);
 		return index;
 	}
 
 	$effect.pre(() => {
-		order.push(`${index}: $effect.pre ${n}`);
+		console.log(`${index}: $effect.pre ${n}`);
 	});
 
 	$effect(() => {
-		order.push(`${index}: $effect ${n}`);
+		console.log(`${index}: $effect ${n}`);
 	});
 </script>
 

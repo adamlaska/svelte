@@ -2,8 +2,8 @@ import { test } from '../../test';
 
 export default test({
 	error: {
-		code: 'missing-attribute-value',
-		message: 'Expected value for the attribute',
+		code: 'expected_attribute_value',
+		message: 'Expected attribute value',
 		position: [12, 12]
 	}
 });

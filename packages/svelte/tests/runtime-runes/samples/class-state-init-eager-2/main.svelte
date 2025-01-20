@@ -1,8 +1,6 @@
 <script>
-	const {log = []} = $props();
-
 	const logger = (obj) => {
-		log.push(obj.count)
+		console.log(obj.count)
 	}
 
 	class Counter {

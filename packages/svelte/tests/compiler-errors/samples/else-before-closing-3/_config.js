@@ -2,8 +2,9 @@ import { test } from '../../test';
 
 export default test({
 	error: {
-		code: 'invalid-else-placement',
-		message: 'Cannot have an {:else} block outside an {#if ...} or {#each ...} block',
-		position: [11, 11]
+		code: 'block_invalid_continuation_placement',
+		message:
+			'{:...} block is invalid at this position (did you forget to close the preceding element or block?)',
+		position: [6, 6]
 	}
 });

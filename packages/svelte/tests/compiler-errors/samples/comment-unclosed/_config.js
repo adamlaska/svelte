@@ -2,8 +2,8 @@ import { test } from '../../test';
 
 export default test({
 	error: {
-		code: 'unclosed-comment',
-		message: 'comment was left open, expected -->',
+		code: 'expected_token',
+		message: 'Expected token -->',
 		position: [24, 24]
 	}
 });

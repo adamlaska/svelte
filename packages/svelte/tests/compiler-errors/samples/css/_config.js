@@ -2,8 +2,8 @@ import { test } from '../../test';
 
 export default test({
 	error: {
-		code: 'css-syntax-error',
-		message: '"{" is expected',
-		position: [24, 24]
+		code: 'css_expected_identifier',
+		message: 'Expected a valid CSS identifier',
+		position: [25, 25]
 	}
 });

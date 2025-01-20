@@ -1,13 +1,9 @@
 import { test } from '../../test';
 
 export default test({
-	get props() {
-		return { log: [] };
-	},
-
-	async test({ assert, target, component }) {
+	async test({ assert, logs }) {
 		await Promise.resolve();
 		await Promise.resolve();
-		assert.deepEqual(component.log, ['a1: ', {}, 'b1: ', {}]);
+		assert.deepEqual(logs, ['a1: ', true, 'b1: ', true]);
 	}
 });

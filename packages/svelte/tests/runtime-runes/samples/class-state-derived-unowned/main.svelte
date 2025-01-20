@@ -1,18 +1,16 @@
-<script context="module">
-		class SomeLogic {
-			someValue = $state(0);
-			isAboveThree = $derived(this.someValue > 3);
-			trigger() {
-				this.someValue++;
-			}
+<script module>
+	class SomeLogic {
+		someValue = $state(0);
+		isAboveThree = $derived(this.someValue > 3);
+		trigger() {
+			this.someValue++;
 		}
+	}
 
 	const someLogic = new SomeLogic();
 </script>
 
 <script>
-	const {log = []} = $props();
-
 	function increment() {
 		someLogic.trigger();
 	}
@@ -20,13 +18,13 @@
 	let localDerived = $derived(someLogic.someValue > 3);
 
 	$effect(() => {
-		log.push(someLogic.someValue);
+		console.log(someLogic.someValue);
 	});
 	$effect(() => {
-		log.push('class trigger ' + someLogic.isAboveThree)
+		console.log('class trigger ' + someLogic.isAboveThree)
 	});
 	$effect(() => {
-		log.push('local trigger ' + localDerived)
+		console.log('local trigger ' + localDerived)
 	});
 
 </script>

@@ -1,16 +1,13 @@
+import { flushSync } from 'svelte';
 import { test } from '../../test';
 
 export default test({
-	get props() {
-		return { log: [] };
-	},
-
-	async test({ assert, target, component }) {
+	test({ assert, target, logs }) {
 		const [b1, b2] = target.querySelectorAll('button');
 		b1.click();
 		b2.click();
-		await Promise.resolve();
+		flushSync();
 
-		assert.deepEqual(component.log, ['first0', 'second0', 'first1', 'second1']);
+		assert.deepEqual(logs, ['first0', 'second0', 'first1', 'second1']);
 	}
 });

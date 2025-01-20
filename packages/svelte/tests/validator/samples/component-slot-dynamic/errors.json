@@ -1,7 +1,7 @@
 [
 	{
-		"code": "dynamic-slot-name",
-		"message": "<slot> name cannot be dynamic",
+		"code": "slot_element_invalid_name",
+		"message": "slot attribute must be a static value",
 		"start": {
 			"line": 1,
 			"column": 6

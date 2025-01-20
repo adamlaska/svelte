@@ -1,21 +1,18 @@
 <script>
-	const {log} = $props();
-
-	let myList = $state([{ name: 'one' ,age: 4 }, {name: 'two', age: 5}]);
-
-	let myDerived = $derived(myList)
+	let s = $state(0);
+	let d = $derived(s)
 
 	$effect(() => {
-		myList
-		log.push('A')
+		s;
+		console.log('A')
 	})
 
 	$effect(() => {
-		myDerived		
-		log.push('B')
+		d;
+		console.log('B')
 	})
 </script>
 
-<h1>Hello {myList[0].age}</h1>
+<h1>{s}</h1>
 
-<button on:click={() => myList[0].age++ }>Click</button>
+<button on:click={() =>s++ }>Click</button>

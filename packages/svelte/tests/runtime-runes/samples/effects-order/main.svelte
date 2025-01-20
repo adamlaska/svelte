@@ -1,15 +1,13 @@
 <script>
-	let { log} = $props();
-
 	let x = $state(0);
 	let y = $state(0);
 
 	$effect.pre(() => {
-		log.push('first'+x);
+		console.log('first'+x);
 	});
 
 	$effect(() => {
-		log.push('second'+x);
+		console.log('second'+x);
 	});
 </script>
 
